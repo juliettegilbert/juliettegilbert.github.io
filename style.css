@@ -1,30 +1,148 @@
-@font-face {
-    font-family: "Space Grotesk";
-    src: url(SpaceGrotesk-Regular.woff2) format("woff2");
-}
-
-
 *{
     box-sizing: border-box;
 }
 
+
+.a-propos{
+    background: #000000;
+    color: #ffffff;
+}
+
 body{
-    background: rgb(227, 229, 219);
-    line-height: 1.5;
-    font-family: "Space Grotesk", sans-serif;
-    font-optical-sizing: auto;
     
+    background: rgb(255, 255, 255);
+    line-height: 1.5;
+    font-family: "poppins", sans-serif;
+    font-optical-sizing: auto;
+    color: rgb(0, 0, 0);
+    
+}
+
+/* --- Bandeau défilant (fonctionnel : droite → gauche, infini) --- */
+.scrolling-text-container {
+    width: 100%;
+    height: 70px;
+    background: rgb(0, 0, 0);
+    overflow: hidden;
+    display: block;            /* container block */
+    position: relative;
+    color: white;
+    /* aligner verticalement le texte */
+    display: flex;
+    align-items: center;
+    grid-column: 1 / -1;
+}
+
+/* La piste : largeur 200% pour contenir deux copies côte à côte */
+.scrolling-track {
+    display: flex;
+    width: 200%;               /* important : double largeur du viewport */
+    box-sizing: border-box;
+    align-items: center;
+    animation: scroll-left 20s linear infinite;
+    will-change: transform;
+}
+
+/* Chaque "groupe" occupe la moitié de la piste (50%) => 2 groupes = 100% visible + 100% copie */
+.scrolling-group {
+    flex: 0 0 50%;             /* prend 50% de la track (donc 100% du viewport chacun) */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-left: 2rem;        /* petit padding gauche pour respirer */
+    box-sizing: border-box;
+}
+
+/* Le texte lui-même */
+.scrolling-group span {
+    white-space: nowrap;
+    font-size: 30px;
+    line-height: 1;
     color: white;
 }
 
-h1{
-    margin: 0;
+/* Animation : défile vers la gauche (de 0 à -50% de la piste) */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);        /* début : piste alignée à gauche du container */
+    }
+    100% {
+        transform: translateX(-50%);     /* fin : la seconde moitié de la piste est alignée à gauche */
+    }
 }
+
+/* Optionnel : pause au survol */
+.scrolling-text-container:hover .scrolling-track {
+    animation-play-state: paused;
+}
+
+
+h1{
+     font-family: "poppins", sans-serif;
+    font-weight: 400;
+	font-style: normal;
+    margin: 1;
+}
+
+h2{
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+	font-style: normal;
+}
+
+h3{
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+	font-style: normal;
+    font-size: 15px;
+    
+}
+
+
+
+.accroche{
+    display: flex;
+    font-family: "poppins", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.center{
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.title{
+    margin: 3;
+    background: #000000;
+    line-height: 1.4;
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    grid-column: 1 / -1;
+}
+
 
 img{
     max-width: 100%;
-    height: auto;
-    display: block;
+   .m{
+    grid-column: span 3;
+    
+}
+}
+
+.img-big{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.img-bigger{
+    grid-column: span 3;
 }
 
 p{
@@ -36,42 +154,176 @@ p{
 
 .header{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr auto;
     justify-content: space-between;
     align-items: center;
+    background: #ffffffd4;
     color: rgb(0, 0, 0);
+    position: sticky;
+    top: 0;   
+}
+.header{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffffd4;
+    color: rgb(0, 0, 0);
+    position: sticky;
+    top: 0;   
+}
+
+
+
+.a-propos .header-nav a{
+    color:#fff
+}
+
+.a-propos .header{
+    background: #000;
+}
+
+
+.filet{
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
+
+.filet:hover{
+    text-decoration: none;
+    color: #000000;
+}
+
+.underline:hover{
+    text-decoration: underline;
 }
 
 .header a{
     text-decoration: none;
     color:currentColor;
+    font-weight: 700;
+}
+
+.header-nav a{
+    margin-right: 10px;
+    font-size: 15px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .nav{
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     gap: 12px;
 }
 
+.nav-img
+
 .nav a{
     text-decoration: none;
     color: currentColor;
-    background: rgb(0, 0, 0);
+    
+    
 }
 
 .nav a span{
     display: block;
-    padding: 12px;
+    padding: 10px;
+    
 }
 
+.footer {
+    font-size: 10px;
+    color: #000000;
+    font-family: "poppins", sans-serif;
+    margin-top: auto;
+    text-align: center;
+    
+}
+
+a {
+    font-size: 10px;
+    color: black;
+    font-weight: normal;
+    font-family: "poppins", sans-serif;
+    margin-top: auto;
+    text-align: center;
+}
+
+
+
+
+/* img */
+
+.item{
+    display: grid;
+    place-items: center;
+    font-family: "Aujournuit-Regular";
+    font-style: normal;
+    font-size: 25px;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgb(7, 7, 7);
+}
+.item img, .item .desc{
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    transition: opacity 0.25s;
+
+}
+.item .desc{
+    opacity:0;
+    padding:12px;
+    border-radius:3px;
+}
+
+.item:hover .desc{
+    opacity:1;
+    z-index: 999;
+}
+.item:hover img{
+    opacity: 0.6;
+}
+
+.special{
+    display: grid;
+    place-items: center;
+    font-family: "Aujournuit-Regular";
+    font-style: normal;
+    font-size: 80px;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgb(7, 7, 7);
+    grid-column: 1/-1;
+}
+
+/* .logo-inline{
+    max-width: none;
+    width: 129px;
+    height: 190px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+*/
+
+.special img{
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    transition: opacity 0.25s;
+    background:none;
+}
+
+.special:hover img{
+    opacity: 0.6;
+}
 /*
 page projet
 ***** */
 
 
 .projet{
-    background: rgb(227, 229, 219);
+    background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
 
@@ -79,3 +331,24 @@ page projet
     font-size: 16px;
     color: rgb(0, 0, 0);
 }
+
+/* .img-large{
+    grid-column: span 2;
+    grid-row: 1/2;
+}
+.img-small{
+    grid-column: 2;
+    grid-row: 1/2;
+} */
+
+.img-acceuil{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+@media (max-width:600px){
+    .nav{
+        grid-template-columns: 1fr;
+    }
+}
+
