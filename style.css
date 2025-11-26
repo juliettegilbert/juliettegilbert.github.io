@@ -170,52 +170,6 @@ p{
     top: 0;   
 }
 
-/* Checkbox invisible */
-.menu-checkbox {
-    display: none;
-}
-
-/* Bouton + (caché sur ordinateur) */
-.menu-button {
-    display: none;
-    font-size: 32px;
-    cursor: pointer;
-    padding: 10px;
-    user-select: none;
-}
-
-/* Menu mobile caché par défaut */
-.mobile-header-nav {
-    display: none;
-    flex-direction: column;
-    gap: 12px;
-    background: white;
-    padding: 14px 18px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    position: absolute;
-    top: 70px;
-    right: 10px;
-}
-
-/* Version mobile */
-@media (max-width: 768px) {
-
-    /* Cacher le menu desktop */
-    .header-nav {
-        display: none;
-    }
-
-    /* Afficher le bouton + */
-    .menu-button {
-        display: block;
-    }
-
-    /* Afficher le menu mobile quand on clique + */
-    .menu-checkbox:checked ~ .mobile-header-nav {
-        display: flex;
-    }
-}
 
 .a-propos .header-nav a{
     color:#fff
